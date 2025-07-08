@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Periza Arora | Travel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Caveat&family=Dancing+Script&family=Patrick+Hand&family=Shadows+Into+Light&family=Architects+Daughter&family=Indie+Flower&family=Quicksand:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --tea-green: #AACC96;
+      --bubblegum: #FF7BAC;
+      --lilacs: #D3B6D3;
+      --butter-yellow: #EFCE7B;
+      --blueberry: #52A5CE;
+      --blood-orange: #EF6F3C;
+      --olive-green: #AFAB23;
+      --background: #fef9f4;
+      --text-beige: #7a6655;
+      --font-default: 'Quicksand', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text-beige);
+      font-family: var(--font-default);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    header {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 25px;
+      font-weight: 600;
+      color: var(--text-beige);
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      border: 1px solid #e2dcd4;
+      background-color: #f2ebe4;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      color: var(--text-beige);
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      background: #ece2da;
+    }
+
+    h1 {
+      font-size: 45px;
+      max-width: 720px;
+      line-height: 1.8;
+      font-weight: 400;
+      white-space: pre-wrap;
+    }
+
+    h1 span {
+      display: inline-block;
+      font-family: var(--font-default);
+      color: var(--text-beige);
+      transition: all 0.4s ease-in-out;
+      cursor: pointer;
+      transform-origin: center bottom;
+    }
+
+    h1 span.funky {
+      font-size: 70px;
+      font-weight: bold;
+      transform: scale(1.15) rotate(-3deg);
+    }
+
+    /* Pastel hover styles */
+    h1 span.color1.funky { color: var(--bubblegum); font-family: 'Gloria Hallelujah', cursive; }
+    h1 span.color2.funky { color: var(--lilacs); font-family: 'Caveat', cursive; }
+    h1 span.color3.funky { color: var(--blueberry); font-family: 'Patrick Hand', cursive; }
+    h1 span.color4.funky { color: var(--butter-yellow); font-family: 'Dancing Script', cursive; }
+    h1 span.color5.funky { color: var(--tea-green); font-family: 'Shadows Into Light', cursive; }
+    h1 span.color6.funky { color: var(--blood-orange); font-family: 'Architects Daughter', cursive; }
+    h1 span.color7.funky { color: var(--olive-green); font-family: 'Indie Flower', cursive; }
+
+    .note {
+      font-size: 13px;
+      color: #b6a798;
+      margin-top: 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Periza Arora</header>
+
+  <nav>
+    <a href="travel2.html">My Travels</a>
+  </nav>
+
+  <main>
+    <h1 id="fancyText"></h1>
+    <p class="note">hover to add color ✿</p>
+  </main>
+
+  <script>
+    const rawText = `I am Periza Arora — a third-year engineering student.
+   I love art, sports, and traveling.`;
+
+    const pastelClasses = ["color1", "color2", "color3", "color4", "color5", "color6", "color7"];
+    const h1 = document.getElementById("fancyText");
+
+    function loadSpans() {
+      h1.innerHTML = "";
+      [...rawText].forEach((char, i) => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        const colorClass = pastelClasses[i % pastelClasses.length];
+        span.classList.add(colorClass);
+
+        span.addEventListener("mouseenter", () => {
+          span.classList.toggle("funky");
+        });
+
+        h1.appendChild(span);
+      });
+    }
+
+    loadSpans();
+  </script>
+
+</body>
+</html>
